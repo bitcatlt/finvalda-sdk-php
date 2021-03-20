@@ -9,7 +9,7 @@ use Finvalda\Method\Product\ProductRequest;
 use Finvalda\Method\Product\ProductResponseParser;
 use Psr\Log\LoggerAwareTrait;
 
-class Client implements ClientInterface
+class FinvaldaClient implements ClientInterface
 {
     use LoggerAwareTrait;
 

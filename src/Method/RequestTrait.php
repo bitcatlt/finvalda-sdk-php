@@ -3,6 +3,7 @@
 namespace Finvalda\Method;
 
 use Finvalda\Method\Models\Config;
+use Finvalda\Method\Models\FinvaldaConfig;
 use Finvalda\Method\Models\ProductRequestModel;
 
 trait RequestTrait
@@ -54,7 +55,7 @@ trait RequestTrait
         return $this->productRequestModel;
     }
 
-    public function getConfig():Config
+    public function getConfig():FinvaldaConfig
     {
         return $this->productRequestModel->getConfig();
     }

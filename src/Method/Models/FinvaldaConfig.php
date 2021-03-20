@@ -2,7 +2,7 @@
 
 namespace Finvalda\Method\Models;
 
-class Config
+class FinvaldaConfig
 {
     /** @var string */
     protected $wsdl;

@@ -15,8 +15,8 @@ class ProductRequestModel
     /** @var Product */
     protected $product;
 
-    /** @var Config */
-    protected $config;
+    /** @var FinvaldaConfig */
+    protected $finvaldaConfig;
 
     public function getProduct():Product
     {
@@ -48,13 +48,13 @@ class ProductRequestModel
         $this->productRequestType = $productRequestType;
     }
 
-    public function setConfig(Config $config)
+    public function setConfig(FinvaldaConfig $finvaldaConfig)
     {
-        $this->config = $config;
+        $this->finvaldaConfig = $finvaldaConfig;
     }
 
-    public function getConfig(): Config
+    public function getConfig(): FinvaldaConfig
     {
-        return $this->config;
+        return $this->finvaldaConfig;
     }
 }

@@ -1,10 +1,11 @@
 <?php
 
-namespace Finvalda\Method;
+namespace Finvalda\Method\Product;
 
 use Finvalda\Http\RequestInterface;
 use Finvalda\Http\SoapRequestInterface;
 use Finvalda\Method\Models\ProductRequestModel;
+use Finvalda\Method\RequestTrait;
 
 class ProductRequest implements SoapRequestInterface
 {

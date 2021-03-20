@@ -5,7 +5,8 @@ namespace Finvalda;
 use Finvalda\Http\ClientInterface;
 use Finvalda\Http\SoapClient;
 use Finvalda\Method\Models\ProductRequestModel;
-use Finvalda\Method\ProductRequest;
+use Finvalda\Method\Product\ProductRequest;
+use Finvalda\Method\Product\ProductResponseParser;
 use Psr\Log\LoggerAwareTrait;
 
 class Client implements ClientInterface

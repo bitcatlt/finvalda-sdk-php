@@ -1,8 +1,10 @@
 <?php
 
-namespace Finvalda;
+namespace Finvalda\Method\Product;
 
 use Finvalda\Http\ResponseInterface;
+use Finvalda\Method\Models\Product;
+use Finvalda\Method\ResponseTrait;
 
 class ProductResponseParser
 {
@@ -27,10 +29,7 @@ class ProductResponseParser
 
                 $parsedProductList[] = $product;
             }
-        } else {
-
         }
-
 
         return $parsedProductList;
     }

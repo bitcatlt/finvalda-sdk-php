@@ -9,9 +9,6 @@ class ProductRequestModel
     /** @var  string */
     protected $productCode;
 
-    /** @var bool */
-    protected $isTestMode = true;
-
     /** @var string */
     protected $requestType = RequestInterface::TYPE_PRODUCT;
 
@@ -20,29 +17,6 @@ class ProductRequestModel
 
     /** @var Config */
     protected $config;
-
-    /** @var \Request */
-    private $request;
-
-    public function getRequest():\Request
-    {
-        return $this->request;
-    }
-
-    public function setRequest(\Request $request):void
-    {
-        $this->request = $request;
-    }
-
-    public function isTestMode():bool
-    {
-        return $this->isTestMode;
-    }
-
-    public function setIsTestMode(bool $isTestMode = false)
-    {
-        $this->isTestMode = $isTestMode;
-    }
 
     public function getProduct():Product
     {

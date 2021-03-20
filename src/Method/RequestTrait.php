@@ -10,7 +10,7 @@ trait RequestTrait
     /** @var ProductRequestModel */
     protected $productRequestModel;
 
-    /** @var string  */
+    /** @var string */
     protected $finvaldaWebserviceUrl = 'http://www.fvs.lt/webservices';
 
     public function getOptions():array
@@ -21,6 +21,11 @@ trait RequestTrait
     public function getClientOptions()
     {
         return null;
+    }
+
+    public function getWsdl()
+    {
+        return $this->getConfig()->getWsdl();
     }
 
     public function getHeader()
@@ -44,13 +49,18 @@ trait RequestTrait
         return [];
     }
 
-    public function getProductRequestModel(): ProductRequestModel
+    public function getProductRequestModel():ProductRequestModel
     {
         return $this->productRequestModel;
     }
 
-    public function getConfig(): Config
+    public function getConfig():Config
     {
         return $this->productRequestModel->getConfig();
+    }
+
+    public function getProvider():string
+    {
+        return 'Finvalda';
     }
 }

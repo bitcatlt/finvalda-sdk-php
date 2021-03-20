@@ -1,6 +1,8 @@
 <?php
 
-namespace Request;
+namespace Finvalda\Http\Guzzle;
+
+use Finvalda\Http\ResponseInterface;
 
 class Response implements ResponseInterface
 {

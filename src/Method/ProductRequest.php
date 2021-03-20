@@ -37,9 +37,4 @@ class ProductRequest implements SoapRequestInterface
 
         return [$params];
     }
-
-    public function getProvider():string
-    {
-        return 'Finvalda';
-    }
 }

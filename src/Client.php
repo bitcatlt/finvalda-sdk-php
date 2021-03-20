@@ -20,22 +20,13 @@ class Client implements ClientInterface
         return $client;
     }
 
-    public function getProductsList(ProductRequestModel $productRequestModel)
+    public function sendProductRequest(ProductRequestModel $productRequestModel)
     {
         $productRequest = new ProductRequest($productRequestModel);
         $response = $this->getClient()->send($productRequest);
         $productListResponseParser = new ProductResponseParser();
         $productsList = $productListResponseParser->extractProducts($response);
 
-
         return $productsList;
-    }
-
-    public function getProductQuantity(ProductRequestModel $productRequestModel)
-    {
-        $productRequest = new ProductRequest($productRequestModel);
-        $response = $this->getClient()->send($productRequest);
-
-        return true;
     }
 }

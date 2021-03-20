@@ -2,6 +2,8 @@
 
 namespace Finvalda\Http;
 
+use Finvalda\Http\Guzzle\RequestStatisticCollector;
+use Finvalda\Http\Guzzle\Response;
 use Psr\Log\LoggerAwareTrait;
 
 class SoapClient
@@ -62,9 +64,9 @@ class SoapClient
     {
         $this->request = $providerRequest;
 
-//        $collector = $this->getStatisticCollector();
-//        $collector->setLogger($this->logger);
-//        $collector->start();
+        $collector = $this->getStatisticCollector();
+        $collector->setLogger($this->logger);
+        $collector->start();
         $this->setSocketTimeOut();
 
         $client = $this->getClient($providerRequest->getWsdl(), $providerRequest->getClientOptions());
@@ -93,8 +95,9 @@ class SoapClient
         } else {
             $providerResponse->setData($response);
         }
-//        $collector->stop();
-//        $collector->log($providerRequest, $providerResponse);
+
+        $collector->stop();
+        $collector->log($providerRequest, $providerResponse);
 
         return $providerResponse;
     }

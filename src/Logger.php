@@ -5,7 +5,7 @@ namespace Finvalda;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerTrait;
 
-class Log implements LoggerInterface
+class Logger implements LoggerInterface
 {
     use LoggerTrait;
 

@@ -3,7 +3,7 @@
 namespace Finvalda;
 
 use Finvalda\Http\ClientInterface;
-use Finvalda\Http\SoapClient;
+use Finvalda\Http\Guzzle\SoapClient;
 use Finvalda\Method\Models\ProductRequestModel;
 use Finvalda\Method\Product\ProductRequest;
 use Finvalda\Method\Product\ProductResponseParser;

@@ -2,7 +2,6 @@
 
 namespace Finvalda\Method;
 
-use Finvalda\Method\Models\Config;
 use Finvalda\Method\Models\FinvaldaConfig;
 use Finvalda\Method\Models\ProductRequestModel;
 

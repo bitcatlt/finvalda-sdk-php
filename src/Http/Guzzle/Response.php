@@ -6,26 +6,23 @@ use Finvalda\Http\ResponseInterface;
 
 class Response implements ResponseInterface
 {
-    /** @var  bool */
+    /** @var bool */
     protected $hasErrors = false;
 
-    /** @var  bool */
+    /** @var bool */
     protected $hasServerErrors = false;
 
-    /** @var  string */
+    /** @var string */
     protected $errorMessage;
 
-    /** @var  string */
+    /** @var string */
     protected $parsingErrorMessage;
 
-    /** @var  string|array */
+    /** @var string|array */
     protected $response;
 
-    /** @var  bool */
+    /** @var bool */
     protected $isTimeOuted = false;
-
-    /** @var int */
-    private $statusCode;
 
     /** @var array */
     private $responseHeaders;
@@ -38,16 +35,6 @@ class Response implements ResponseInterface
     public function setResponseHeaders(array $responseHeaders):void
     {
         $this->responseHeaders = $responseHeaders;
-    }
-
-    public function getStatusCode():int
-    {
-        return $this->statusCode;
-    }
-
-    public function setStatusCode(int $statusCode):void
-    {
-        $this->statusCode = $statusCode;
     }
 
     public function getErrorType():string
@@ -167,7 +154,7 @@ class Response implements ResponseInterface
     /**
      * Error message getter
      */
-    public function getErrorMessage():string
+    public function getErrorMessage(): ?string
     {
         return $this->errorMessage;
     }

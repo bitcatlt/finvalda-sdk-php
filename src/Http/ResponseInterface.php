@@ -80,7 +80,7 @@ interface ResponseInterface
     /**
      * Error message getter
      */
-    public function getErrorMessage():string;
+    public function getErrorMessage(): ?string;
 
     /**
      * Returns error message during parsing

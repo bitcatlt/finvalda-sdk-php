@@ -2,7 +2,6 @@
 
 namespace Finvalda\Method;
 
-
 use Finvalda\Http\ResponseInterface;
 
 trait ResponseTrait

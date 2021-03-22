@@ -1,9 +1,10 @@
 <?php
 
-namespace Finvalda\Http;
+namespace Finvalda\Http\Guzzle;
 
-use Finvalda\Http\Guzzle\RequestStatisticCollector;
-use Finvalda\Http\Guzzle\Response;
+use Finvalda\Http\ResponseErrorParser;
+use Finvalda\Http\ResponseInterface;
+use Finvalda\Http\SoapRequestInterface;
 use Psr\Log\LoggerAwareTrait;
 
 class SoapClient
@@ -16,7 +17,7 @@ class SoapClient
     /** @var string */
     protected $socketTimeout = '10';
 
-    /** @var  \SoapClient */
+    /** @var SoapClient */
     protected $client;
 
     /** @var array */

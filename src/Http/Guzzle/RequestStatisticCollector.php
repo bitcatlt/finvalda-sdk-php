@@ -57,13 +57,8 @@ class RequestStatisticCollector
             'duration' => $this->getDuration(),
         ];
 
-
         if ($this->shouldLogTheResponse($providerRequest)) {
             $logData['responseString'] = mb_detect_encoding($providerResponse->getResponseString());
-        }
-
-        if (method_exists($providerResponse, 'getStatusCode')) {
-            $logData['statusCode'] = $providerResponse->getStatusCode();
         }
 
         if (method_exists($providerResponse, 'getHeaders')) {

@@ -13,6 +13,6 @@
         "bin-dir": "bin"
     },
     "autoload": {
-        "psr-4": {"Finvaldas\\": "src"}
+        "psr-4": {"Finvalda\\": "src"}
     }
 }

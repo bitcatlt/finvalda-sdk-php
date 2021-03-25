@@ -16,18 +16,24 @@ class Product
     /** @var string */
     protected $name;
 
-    /** @var int  */
+    /** @var int */
     protected $quantity = 0;
 
     /** @var int */
-    protected $reservedQuantity = 0;
+    protected $quantityWithReserve = 0;
+
+    /** @var string */
+    protected $mainCategory;
+
+    /** @var string */
+    protected $category;
 
     public function __construct()
     {
         $this->setIsAvailable(false);
     }
 
-    public function isAvailable(): bool
+    public function isAvailable():bool
     {
         return $this->isAvailable;
     }
@@ -37,7 +43,7 @@ class Product
         $this->isAvailable = $isAvailable;
     }
 
-    public function setPrice(float $price): void
+    public function setPrice(float $price):void
     {
         $this->price = $price;
     }
@@ -47,7 +53,7 @@ class Product
         return $this->price;
     }
 
-    public function setName(string $name): void
+    public function setName(string $name):void
     {
         $this->name = $name;
     }
@@ -57,7 +63,7 @@ class Product
         return $this->name;
     }
 
-    public function setCode(string $code): void
+    public function setCode(string $code):void
     {
         $this->code = $code;
     }
@@ -67,7 +73,7 @@ class Product
         return $this->code;
     }
 
-    public function setQuantity(int $quantity): void
+    public function setQuantity(int $quantity):void
     {
         $this->quantity = $quantity;
     }
@@ -77,13 +83,51 @@ class Product
         return $this->quantity;
     }
 
-    public function setReservedQuantity(int $reservedQuantity): void
+    /**
+     * @return int
+     */
+    public function getQuantityWithReserve():int
     {
-        $this->reservedQuantity = $reservedQuantity;
+        return $this->quantityWithReserve;
     }
 
-    public function getReservedQuantity():int
+    /**
+     * @param int $quantityWithReserve
+     */
+    public function setQuantityWithReserve(int $quantityWithReserve):void
     {
-        return $this->reservedQuantity;
+        $this->quantityWithReserve = $quantityWithReserve;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMainCategory():string
+    {
+        return $this->mainCategory;
+    }
+
+    /**
+     * @param string $mainCategory
+     */
+    public function setMainCategory(string $mainCategory):void
+    {
+        $this->mainCategory = $mainCategory;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCategory():string
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param string $category
+     */
+    public function setCategory(string $category):void
+    {
+        $this->category = $category;
     }
 }

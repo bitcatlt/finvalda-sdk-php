@@ -20,7 +20,10 @@ class ProductResponseParser
                 $product = new Product();
                 $product->setCode((string)$item->preke);
                 $product->setName((string)$item->prekes_pav);
+                $product->setMainCategory((string)$item->sendelis);
+                $product->setCategory((string)$item->sandelio_pav);
                 $product->setQuantity((int)$item->kiekis);
+                $product->setQuantityWithReserve((int)$item->kiekis_su_rezervuotom);
                 $product->setPrice((float)$item->savikaina);
 
                 if ($item->kiekis > 0) {

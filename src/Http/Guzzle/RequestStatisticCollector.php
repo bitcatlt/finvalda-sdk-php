@@ -19,13 +19,13 @@ class RequestStatisticCollector
 
     /** @var array */
     protected $logResponse = [
-        //RequestInterface::TYPE_PRICE_CHECK,
+        RequestInterface::TYPE_PRODUCT,
         RequestInterface::TYPE_ORDER_RESERVATION
     ];
 
     /** @var array */
     private $loggableRequests = [
-        //RequestInterface::TYPE_PRICE_CHECK,
+        RequestInterface::TYPE_PRODUCT,
         RequestInterface::TYPE_ORDER_RESERVATION
     ];
 
@@ -83,8 +83,7 @@ class RequestStatisticCollector
         $data = '';
 
         if (in_array($providerRequest->getType(), $this->loggableRequests)) {
-            if ($providerRequest instanceof SoapRequestInterface
-                && $this->shouldLogTheResponse($providerRequest)) {
+            if ($providerRequest instanceof SoapRequestInterface) {
                 $data = $providerRequest->getWsdl() . ' ' . $providerRequest->getFunction() . ' '
                     . var_export($providerRequest->getParameters(), true)
                     . var_export($providerRequest->getClientOptions(), true);
@@ -100,11 +99,6 @@ class RequestStatisticCollector
 
         if ($this->shouldLogTheResponse($providerRequest)) {
             $responseToReturn = $providerResponse->getResponseString();
-
-            if ($providerResponse instanceof Response) {
-                $responseToReturn .= ' ' . var_export($providerResponse->getResponseHeaders(), true);
-            }
-
         }
 
         return $responseToReturn;

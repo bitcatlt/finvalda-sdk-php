@@ -20,7 +20,7 @@ class Product
     protected $quantityWithReserve = 0;
 
     /** @var string */
-    protected $mainCategory;
+    protected $warehouseCode;
 
     /** @var string */
     protected $category;
@@ -84,17 +84,17 @@ class Product
     /**
      * @return string
      */
-    public function getMainCategory():string
+    public function getWarehouseCode():string
     {
-        return $this->mainCategory;
+        return $this->warehouseCode;
     }
 
     /**
-     * @param string $mainCategory
+     * @param string $warehouseCode
      */
-    public function setMainCategory(string $mainCategory):void
+    public function setWarehouseCode(string $warehouseCode):void
     {
-        $this->mainCategory = $mainCategory;
+        $this->warehouseCode = $warehouseCode;
     }
 
     /**

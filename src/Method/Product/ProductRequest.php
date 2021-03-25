@@ -34,6 +34,10 @@ class ProductRequest implements SoapRequestInterface
             $params->sPrekesKodas = $this->productRequestModel->getProductCode();
         }
 
+        if (null !== $this->productRequestModel->getWarehouse()) {
+            $params->sSandelioKodas = $this->productRequestModel->getWarehouse();
+        }
+
         $params->writeSchema  = false;
 
         return [$params];

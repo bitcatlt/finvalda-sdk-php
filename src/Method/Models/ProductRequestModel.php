@@ -15,6 +15,9 @@ class ProductRequestModel
     /** @var Product */
     protected $product;
 
+    /** @var string */
+    private $warehouse;
+
     /** @var FinvaldaConfig */
     protected $finvaldaConfig;
 
@@ -56,5 +59,15 @@ class ProductRequestModel
     public function getConfig(): FinvaldaConfig
     {
         return $this->finvaldaConfig;
+    }
+
+    public function getWarehouse():string
+    {
+        return $this->warehouse;
+    }
+
+    public function setWarehouse(string $warehouse):void
+    {
+        $this->warehouse = $warehouse;
     }
 }

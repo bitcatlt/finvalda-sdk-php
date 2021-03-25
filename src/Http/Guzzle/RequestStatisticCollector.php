@@ -19,7 +19,6 @@ class RequestStatisticCollector
 
     /** @var array */
     protected $logResponse = [
-        RequestInterface::TYPE_PRODUCT,
         RequestInterface::TYPE_ORDER_RESERVATION
     ];
 

@@ -4,9 +4,6 @@ namespace Finvalda\Method\Models;
 
 class Product
 {
-    /** @var bool */
-    protected $isAvailable;
-
     /** @var float */
     protected $price = 0.0;
 
@@ -27,21 +24,6 @@ class Product
 
     /** @var string */
     protected $category;
-
-    public function __construct()
-    {
-        $this->setIsAvailable(false);
-    }
-
-    public function isAvailable():bool
-    {
-        return $this->isAvailable;
-    }
-
-    public function setIsAvailable(bool $isAvailable)
-    {
-        $this->isAvailable = $isAvailable;
-    }
 
     public function setPrice(float $price):void
     {

@@ -26,10 +26,6 @@ class ProductResponseParser
                 $product->setQuantityWithReserve((int)$item->kiekis_su_rezervuotom);
                 $product->setPrice((float)$item->savikaina);
 
-                if ($item->kiekis > 0) {
-                    $product->setIsAvailable(true);
-                }
-
                 $parsedProductList[] = $product;
             }
         }

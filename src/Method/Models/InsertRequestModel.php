@@ -44,65 +44,41 @@ class InsertRequestModel
         return $this->finvaldaConfig;
     }
 
-    /**
-     * @return string
-     */
     public function getParameter():?string
     {
         return $this->parameter;
     }
 
-    /**
-     * @param string $parameter
-     */
     public function setParameter(string $parameter):void
     {
         $this->parameter = $parameter;
     }
 
-    /**
-     * @return string
-     */
     public function getXmlString():string
     {
         return $this->xmlString;
     }
 
-    /**
-     * @param string $itemObject
-     */
     public function setXmlString(string $xmlString):void
     {
         $this->xmlString = $xmlString;
     }
 
-    /**
-     * @return string
-     */
     public function getItemClassName():string
     {
         return $this->itemClassName;
     }
 
-    /**
-     * @param string $itemClassName
-     */
     public function setItemClassName(string $itemClassName):void
     {
         $this->itemClassName = $itemClassName;
     }
 
-    /**
-     * @return string
-     */
     public function getFunctionName():string
     {
         return $this->functionName;
     }
 
-    /**
-     * @param string $function
-     */
     public function setFunctionName(string $functionName):void
     {
         $this->functionName = $functionName;

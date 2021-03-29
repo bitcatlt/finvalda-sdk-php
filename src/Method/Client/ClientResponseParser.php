@@ -1,12 +1,12 @@
 <?php
 
-namespace Finvalda\Method\Insert;
+namespace Finvalda\Method\Client;
 
 use Finvalda\Http\InsertResponseParserInterface;
 use Finvalda\Http\ResponseInterface;
 use Finvalda\Method\ResponseTrait;
 
-class InsertResponseParser implements InsertResponseParserInterface
+class ClientResponseParser implements InsertResponseParserInterface
 {
     use ResponseTrait;
 

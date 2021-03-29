@@ -65,49 +65,31 @@ class Product
         return $this->quantity;
     }
 
-    /**
-     * @return int
-     */
     public function getQuantityWithReserve():int
     {
         return $this->quantityWithReserve;
     }
 
-    /**
-     * @param int $quantityWithReserve
-     */
     public function setQuantityWithReserve(int $quantityWithReserve):void
     {
         $this->quantityWithReserve = $quantityWithReserve;
     }
 
-    /**
-     * @return string
-     */
     public function getWarehouseCode():string
     {
         return $this->warehouseCode;
     }
 
-    /**
-     * @param string $warehouseCode
-     */
     public function setWarehouseCode(string $warehouseCode):void
     {
         $this->warehouseCode = $warehouseCode;
     }
 
-    /**
-     * @return string
-     */
     public function getCategory():string
     {
         return $this->category;
     }
 
-    /**
-     * @param string $category
-     */
     public function setCategory(string $category):void
     {
         $this->category = $category;

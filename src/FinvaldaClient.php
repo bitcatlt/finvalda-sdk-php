@@ -46,7 +46,7 @@ class FinvaldaClient implements ClientInterface
         return $responseParser->extractResponse($response);
     }
 
-    public function sendInsertRequest(InsertRequestModel $insertRequestModel):string
+    public function sendInsertRequest(InsertRequestModel $insertRequestModel):bool
     {
         $insertNewItemRequest = new InsertRequest($insertRequestModel);
         $response = $this->getClient()->send($insertNewItemRequest);

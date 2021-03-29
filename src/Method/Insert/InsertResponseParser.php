@@ -4,19 +4,21 @@ namespace Finvalda\Method\Insert;
 
 use Finvalda\Http\InsertResponseParserInterface;
 use Finvalda\Http\ResponseInterface;
-use Finvalda\Method\ResponseTrait;
 
 class InsertResponseParser implements InsertResponseParserInterface
 {
-    use ResponseTrait;
-
-    public function extractResponse(ResponseInterface $providerResponse):string
+    public function extractResponse(ResponseInterface $providerResponse):bool
     {
-        // TODO: Implement extractResponse() method.
-        $response = $this->getFinvaldaResponseXML($providerResponse);
-        if (true){
+        $result = false;
 
+        $response = $providerResponse->getResponseObject();
+        if (
+            (property_exists($response, 'InsertNewItemResult') && $response->InsertNewItemResult === 'Success')
+            || (property_exists($response, 'InsertNewOperationResult') && $response->InsertNewOperationResult === 'Success')
+        ){
+            $result = true;
         }
-        return 'success';
+
+        return $result;
     }
 }

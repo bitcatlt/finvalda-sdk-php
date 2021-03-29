@@ -34,8 +34,8 @@ class InsertRequest implements SoapRequestInterface
             $params->sParametras = $this->getInsertRequestModel()->getParameter();
         }
 
-        if (null !== $this->getInsertRequestModel()->getItemObject()) {
-            $params->xmlString = $this->getInsertRequestModel()->getItemObject();
+        if (null !== $this->getInsertRequestModel()->getXmlString()) {
+            $params->xmlString = $this->getInsertRequestModel()->getXmlString();
         }
 
         return [$params];

@@ -12,8 +12,8 @@ class InsertRequestModel
     /** @var FinvaldaConfig */
     protected $finvaldaConfig;
 
-    /** @var \stdClass */
-    protected $itemObject;
+    /** @var string */
+    protected $xmlString;
 
     /** @var string */
     protected $itemClassName;
@@ -61,19 +61,19 @@ class InsertRequestModel
     }
 
     /**
-     * @return \stdClass
+     * @return string
      */
-    public function getItemObject():\stdClass
+    public function getXmlString():string
     {
-        return $this->itemObject;
+        return $this->xmlString;
     }
 
     /**
-     * @param \stdClass $itemObject
+     * @param string $itemObject
      */
-    public function setItemObject(\stdClass $itemObject):void
+    public function setXmlString(string $xmlString):void
     {
-        $this->itemObject = $itemObject;
+        $this->xmlString = $xmlString;
     }
 
     /**

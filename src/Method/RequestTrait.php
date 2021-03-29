@@ -3,12 +3,16 @@
 namespace Finvalda\Method;
 
 use Finvalda\Method\Models\FinvaldaConfig;
+use Finvalda\Method\Models\InsertRequestModel;
 use Finvalda\Method\Models\ProductRequestModel;
 
 trait RequestTrait
 {
     /** @var ProductRequestModel */
     protected $productRequestModel;
+
+    /** @var InsertRequestModel */
+    protected $insertRequestModel;
 
     /** @var string */
     protected $finvaldaWebserviceUrl = 'http://www.fvs.lt/webservices';
@@ -54,9 +58,18 @@ trait RequestTrait
         return $this->productRequestModel;
     }
 
+    public function getInsertRequestModel():InsertRequestModel
+    {
+        return $this->insertRequestModel;
+    }
+
     public function getConfig():FinvaldaConfig
     {
-        return $this->productRequestModel->getConfig();
+        if (null !== $this->insertRequestModel) {
+            return $this->insertRequestModel->getFinvaldaConfig();
+        }
+
+        return $this->productRequestModel->getFinvaldaConfig();
     }
 
     public function getProvider():string

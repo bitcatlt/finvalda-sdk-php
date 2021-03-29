@@ -12,24 +12,11 @@ class ProductRequestModel
     /** @var string */
     protected $requestType = RequestInterface::TYPE_PRODUCT;
 
-    /** @var Product */
-    protected $product;
-
     /** @var string */
     private $warehouse;
 
     /** @var FinvaldaConfig */
     protected $finvaldaConfig;
-
-    public function getProduct():Product
-    {
-        return $this->product;
-    }
-
-    public function setProduct(Product $product)
-    {
-        $this->product = $product;
-    }
 
     public function getProductCode():?string
     {
@@ -51,12 +38,12 @@ class ProductRequestModel
         $this->productRequestType = $productRequestType;
     }
 
-    public function setConfig(FinvaldaConfig $finvaldaConfig)
+    public function setFinvaldaConfig(FinvaldaConfig $finvaldaConfig)
     {
         $this->finvaldaConfig = $finvaldaConfig;
     }
 
-    public function getConfig(): FinvaldaConfig
+    public function getFinvaldaConfig(): FinvaldaConfig
     {
         return $this->finvaldaConfig;
     }

@@ -2,14 +2,12 @@
 
 namespace Finvalda\Http;
 
+use Finvalda\Method\Models\InsertRequestModel;
 use Psr\Log\LoggerInterface;
 
 interface ClientInterface
 {
-    /**
-     * Sets a logger.
-     *
-     * @param LoggerInterface $logger
-     */
     public function setLogger(LoggerInterface $logger);
+
+    public function sendInsertRequest(InsertRequestModel $insertRequestModel);
 }

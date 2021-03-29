@@ -4,6 +4,9 @@ namespace Finvalda;
 
 use Finvalda\Http\ClientInterface;
 use Finvalda\Http\Guzzle\SoapClient;
+use Finvalda\Method\Insert\InsertRequest;
+use Finvalda\Method\Insert\InsertResponseParser;
+use Finvalda\Method\Models\InsertRequestModel;
 use Finvalda\Method\Models\ProductRequestModel;
 use Finvalda\Method\Product\ProductRequest;
 use Finvalda\Method\Product\ProductResponseParser;
@@ -21,13 +24,21 @@ class FinvaldaClient implements ClientInterface
         return $client;
     }
 
-    public function sendProductRequest(ProductRequestModel $productRequestModel)
+    public function sendProductRequest(ProductRequestModel $productRequestModel): array
     {
         $productRequest = new ProductRequest($productRequestModel);
         $response = $this->getClient()->send($productRequest);
         $productListResponseParser = new ProductResponseParser();
-        $productsList = $productListResponseParser->extractProducts($response);
 
-        return $productsList;
+        return $productListResponseParser->extractProducts($response);
+    }
+
+    public function sendInsertRequest(InsertRequestModel $insertRequestModel)
+    {
+        $insertNewItemRequest = new InsertRequest($insertRequestModel);
+        $response = $this->getClient()->send($insertNewItemRequest);
+        $responseParser = new InsertResponseParser();
+
+        return $responseParser->extractResponse($response);
     }
 }

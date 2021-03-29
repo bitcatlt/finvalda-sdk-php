@@ -2,7 +2,6 @@
 
 namespace Finvalda\Method\Product;
 
-use Finvalda\Http\RequestInterface;
 use Finvalda\Http\SoapRequestInterface;
 use Finvalda\Method\Models\ProductRequestModel;
 use Finvalda\Method\RequestTrait;
@@ -23,19 +22,19 @@ class ProductRequest implements SoapRequestInterface
 
     public function getType():string
     {
-        return RequestInterface::TYPE_PRODUCT;
+        return $this->getProductRequestModel()->getProductRequestType();
     }
 
     public function getParameters():array
     {
         $params = new \stdClass();
 
-        if (null !== $this->productRequestModel->getProductCode()) {
-            $params->sPrekesKodas = $this->productRequestModel->getProductCode();
+        if (null !== $this->getProductRequestModel()->getProductCode()) {
+            $params->sPrekesKodas = $this->getProductRequestModel()->getProductCode();
         }
 
-        if (null !== $this->productRequestModel->getWarehouse()) {
-            $params->sSandelioKodas = $this->productRequestModel->getWarehouse();
+        if (null !== $this->getProductRequestModel()->getWarehouse()) {
+            $params->sSandelioKodas = $this->getProductRequestModel()->getWarehouse();
         }
 
         $params->writeSchema  = false;

@@ -2,21 +2,20 @@
 
 namespace Finvalda\Method\Client;
 
-use Finvalda\Http\InsertResponseParserInterface;
 use Finvalda\Http\ResponseInterface;
-use Finvalda\Method\ResponseTrait;
+use Finvalda\Method\Models\Client;
 
-class ClientResponseParser implements InsertResponseParserInterface
+class ClientResponseParser
 {
-    use ResponseTrait;
-
-    public function extractResponse(ResponseInterface $providerResponse):string
+    public function extractResponse(ResponseInterface $providerResponse):Client
     {
-        // TODO: Implement extractResponse() method.
-        $response = $this->getFinvaldaResponseXML($providerResponse);
-        if (true){
+        $response = $providerResponse->getResponseObject();
+        $client = new Client();
 
+        if ($response->GetKlientasResult === 'Success'){
+            $client->setIsClientExist(true);
         }
-        return 'success';
+
+        return $client;
     }
 }

@@ -8,6 +8,7 @@ use Finvalda\Method\Client\ClientRequest;
 use Finvalda\Method\Client\ClientResponseParser;
 use Finvalda\Method\Insert\InsertRequest;
 use Finvalda\Method\Insert\InsertResponseParser;
+use Finvalda\Method\Models\Client;
 use Finvalda\Method\Models\ClientRequestModel;
 use Finvalda\Method\Models\InsertRequestModel;
 use Finvalda\Method\Models\ProductRequestModel;
@@ -36,7 +37,7 @@ class FinvaldaClient implements ClientInterface
         return $productListResponseParser->extractProducts($response);
     }
 
-    public function getClientRequest(ClientRequestModel $clientRequestModel)
+    public function getClientRequest(ClientRequestModel $clientRequestModel): Client
     {
         $clientRequest = new ClientRequest($clientRequestModel);
         $response = $this->getClient()->send($clientRequest);

@@ -5,6 +5,7 @@ namespace Finvalda\Http;
 interface RequestInterface
 {
     const TYPE_PRODUCT = 'ProductRequest';
+    const TYPE_CHECK_PRODUCT = 'ProductCheckRequest';
     const TYPE_GET_COMPANY = 'GetCompanyRequest';
     const TYPE_ORDER_RESERVATION = 'OrderReservationRequest';
     const TYPE_INSERT_COMPANY = 'InsertCompanyRequest';

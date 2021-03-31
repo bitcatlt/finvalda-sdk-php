@@ -3,11 +3,12 @@
 namespace Finvalda\Method\Client;
 
 use Finvalda\Http\ResponseInterface;
+use Finvalda\Http\ResponseParserInterface;
 use Finvalda\Method\Models\Client;
 
-class ClientResponseParser
+class ClientResponseParser implements ResponseParserInterface
 {
-    public function extractResponse(ResponseInterface $providerResponse):Client
+    public function parseResponse(ResponseInterface $providerResponse):Client
     {
         $response = $providerResponse->getResponseObject();
         $client = new Client();

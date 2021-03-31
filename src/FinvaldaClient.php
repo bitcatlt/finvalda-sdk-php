@@ -12,6 +12,7 @@ use Finvalda\Method\Models\Client;
 use Finvalda\Method\Models\ClientRequestModel;
 use Finvalda\Method\Models\InsertRequestModel;
 use Finvalda\Method\Models\ProductRequestModel;
+use Finvalda\Method\Product\ProductCheckResponseParser;
 use Finvalda\Method\Product\ProductRequest;
 use Finvalda\Method\Product\ProductResponseParser;
 use Psr\Log\LoggerAwareTrait;
@@ -37,13 +38,22 @@ class FinvaldaClient implements ClientInterface
         return $productListResponseParser->extractProducts($response);
     }
 
+    public function productCheckRequest(ProductRequestModel $productRequestModel): bool
+    {
+        $productRequest = new ProductRequest($productRequestModel);
+        $response = $this->getClient()->send($productRequest);
+        $parser = new ProductCheckResponseParser();
+
+        return $parser->parseResponse($response);
+    }
+
     public function getClientRequest(ClientRequestModel $clientRequestModel): Client
     {
         $clientRequest = new ClientRequest($clientRequestModel);
         $response = $this->getClient()->send($clientRequest);
         $responseParser = new ClientResponseParser();
 
-        return $responseParser->extractResponse($response);
+        return $responseParser->parseResponse($response);
     }
 
     public function sendInsertRequest(InsertRequestModel $insertRequestModel):bool
@@ -52,6 +62,6 @@ class FinvaldaClient implements ClientInterface
         $response = $this->getClient()->send($insertNewItemRequest);
         $responseParser = new InsertResponseParser();
 
-        return $responseParser->extractResponse($response);
+        return $responseParser->parseResponse($response);
     }
 }

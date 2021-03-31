@@ -17,7 +17,7 @@ class ProductRequest implements SoapRequestInterface
 
     public function getFunction():string
     {
-        return 'GetEinamiejiLikuciaiXml';
+        return $this->getProductRequestModel()->getFunctionName();
     }
 
     public function getType():string

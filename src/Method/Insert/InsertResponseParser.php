@@ -2,12 +2,12 @@
 
 namespace Finvalda\Method\Insert;
 
-use Finvalda\Http\InsertResponseParserInterface;
+use Finvalda\Http\ResponseParserInterface;
 use Finvalda\Http\ResponseInterface;
 
-class InsertResponseParser implements InsertResponseParserInterface
+class InsertResponseParser implements ResponseParserInterface
 {
-    public function extractResponse(ResponseInterface $providerResponse):bool
+    public function parseResponse(ResponseInterface $providerResponse):bool
     {
         $result = false;
 

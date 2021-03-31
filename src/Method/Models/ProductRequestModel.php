@@ -18,6 +18,9 @@ class ProductRequestModel
     /** @var FinvaldaConfig */
     protected $finvaldaConfig;
 
+    /** @var string */
+    protected $functionName;
+
     public function getProductCode():?string
     {
         return $this->productCode;
@@ -56,5 +59,15 @@ class ProductRequestModel
     public function setWarehouse(string $warehouse):void
     {
         $this->warehouse = $warehouse;
+    }
+
+    public function getFunctionName():string
+    {
+        return $this->functionName;
+    }
+
+    public function setFunctionName(string $functionName):void
+    {
+        $this->functionName = $functionName;
     }
 }

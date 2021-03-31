@@ -33,7 +33,7 @@ class ProductRequest implements SoapRequestInterface
             $params->sPrekesKodas = $this->getProductRequestModel()->getProductCode();
         }
 
-        if (null !== $this->getProductRequestModel()->getWarehouse()) {
+        if (!empty($this->getProductRequestModel()->getWarehouse())) {
             $params->sSandelioKodas = $this->getProductRequestModel()->getWarehouse();
         }
 

@@ -6,8 +6,11 @@ use Finvalda\Http\RequestInterface;
 
 class ProductRequestModel
 {
-    /** @var  string */
+    /** @var string */
     protected $productCode;
+
+    /** @var string */
+    protected $serviceCode;
 
     /** @var string */
     protected $requestType = RequestInterface::TYPE_PRODUCT;
@@ -70,4 +73,15 @@ class ProductRequestModel
     {
         $this->functionName = $functionName;
     }
+
+    public function getServiceCode():string
+    {
+        return $this->serviceCode;
+    }
+
+    public function setServiceCode(string $serviceCode):void
+    {
+        $this->serviceCode = $serviceCode;
+    }
+
 }

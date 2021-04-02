@@ -29,8 +29,12 @@ class ProductRequest implements SoapRequestInterface
     {
         $params = new \stdClass();
 
-        if (null !== $this->getProductRequestModel()->getProductCode()) {
+        if (!empty($this->getProductRequestModel()->getProductCode())) {
             $params->sPrekesKodas = $this->getProductRequestModel()->getProductCode();
+        }
+
+        if (!empty($this->getProductRequestModel()->getServiceCode())) {
+            $params->sPaslaugosKodas = $this->getProductRequestModel()->getServiceCode();
         }
 
         if (!empty($this->getProductRequestModel()->getWarehouse())) {

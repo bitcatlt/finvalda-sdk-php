@@ -22,7 +22,7 @@ class ProductRequest implements SoapRequestInterface
 
     public function getType():string
     {
-        return $this->getProductRequestModel()->getProductRequestType();
+        return $this->getProductRequestModel()->getRequestType();
     }
 
     public function getParameters():array

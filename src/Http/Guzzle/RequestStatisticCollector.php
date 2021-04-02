@@ -19,13 +19,23 @@ class RequestStatisticCollector
 
     /** @var array */
     protected $logResponse = [
-        RequestInterface::TYPE_ORDER_RESERVATION
+        RequestInterface::TYPE_ORDER_RESERVATION,
+        RequestInterface::TYPE_ORDER,
+        RequestInterface::TYPE_INSERT_COMPANY,
+        RequestInterface::TYPE_INSERT_CUSTOMER,
+        RequestInterface::TYPE_INSERT
     ];
 
     /** @var array */
     private $loggableRequests = [
-        RequestInterface::TYPE_PRODUCT,
-        RequestInterface::TYPE_ORDER_RESERVATION
+        RequestInterface::TYPE_CHECK_PRODUCT,
+        RequestInterface::TYPE_CHECK_SERVICE,
+        RequestInterface::TYPE_GET_COMPANY,
+        RequestInterface::TYPE_ORDER_RESERVATION,
+        RequestInterface::TYPE_ORDER,
+        RequestInterface::TYPE_INSERT_COMPANY,
+        RequestInterface::TYPE_INSERT_CUSTOMER,
+        RequestInterface::TYPE_INSERT
     ];
 
     public function start():void

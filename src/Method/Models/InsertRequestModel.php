@@ -31,7 +31,7 @@ class InsertRequestModel
 
     public function setRequestType(string $requestType):void
     {
-        $this->productRequestType = $requestType;
+        $this->requestType = $requestType;
     }
 
     public function setFinvaldaConfig(FinvaldaConfig $finvaldaConfig)

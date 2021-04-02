@@ -13,6 +13,8 @@ interface RequestInterface
     const TYPE_INSERT_COMPANY = 'InsertCompanyRequest';
     const TYPE_INSERT_CUSTOMER = 'InsertCustomerRequest';
     const TYPE_INSERT = 'InsertRequest';
+    const TYPE_INSERT_PRODUCT = 'InsertProductRequest';
+    const TYPE_INSERT_SERVICE = 'InsertProductRequest';
 
     /**
      * @return string

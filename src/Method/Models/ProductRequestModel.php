@@ -34,14 +34,14 @@ class ProductRequestModel
         $this->productCode = $productCode;
     }
 
-    public function getProductRequestType():string
+    public function getRequestType():string
     {
         return $this->requestType;
     }
 
-    public function setProductRequestType(string $productRequestType):void
+    public function setRequestType(string $requestType):void
     {
-        $this->productRequestType = $productRequestType;
+        $this->requestType = $requestType;
     }
 
     public function setFinvaldaConfig(FinvaldaConfig $finvaldaConfig)

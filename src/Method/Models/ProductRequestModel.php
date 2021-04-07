@@ -74,7 +74,7 @@ class ProductRequestModel
         $this->functionName = $functionName;
     }
 
-    public function getServiceCode():string
+    public function getServiceCode():?string
     {
         return $this->serviceCode;
     }

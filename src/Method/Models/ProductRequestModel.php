@@ -54,7 +54,7 @@ class ProductRequestModel
         return $this->finvaldaConfig;
     }
 
-    public function getWarehouse():string
+    public function getWarehouse():?string
     {
         return $this->warehouse;
     }

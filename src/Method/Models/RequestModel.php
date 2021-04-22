@@ -4,7 +4,7 @@ namespace Finvalda\Method\Models;
 
 use Finvalda\Http\RequestInterface;
 
-class InsertRequestModel
+class RequestModel
 {
     /** @var string */
     protected $requestType = RequestInterface::TYPE_INSERT;

@@ -1,27 +1,22 @@
 <?php
 
-namespace Finvalda\Method\Insert;
+namespace Finvalda\Method\Delete;
 
 use Finvalda\Http\ResponseParserInterface;
 use Finvalda\Http\ResponseInterface;
 
-class InsertResponseParser implements ResponseParserInterface
+class DeleteResponseParser implements ResponseParserInterface
 {
-    public function parseResponse(ResponseInterface $providerResponse):array
+    public function parseResponse(ResponseInterface $providerResponse):bool
     {
-        $result = [
-            'status' => false
-        ];
+        $result = false;
 
         $response = $providerResponse->getResponseObject();
         if (
             (property_exists($response, 'InsertNewItemResult') && $response->InsertNewItemResult === 'Success')
             || (property_exists($response, 'InsertNewOperationResult') && $response->InsertNewOperationResult === 'Success')
-        ) {
-            $result = [
-                'status' => true,
-                'response' => property_exists($response, 'sError') ? $response->sError : ''
-            ];
+        ){
+            $result = true;
         }
 
         return $result;

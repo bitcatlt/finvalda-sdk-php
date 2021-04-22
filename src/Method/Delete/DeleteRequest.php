@@ -1,12 +1,12 @@
 <?php
 
-namespace Finvalda\Method\Insert;
+namespace Finvalda\Method\Delete;
 
 use Finvalda\Http\SoapRequestInterface;
 use Finvalda\Method\Models\RequestModel;
 use Finvalda\Method\RequestTrait;
 
-class InsertRequest implements SoapRequestInterface
+class DeleteRequest implements SoapRequestInterface
 {
     use RequestTrait;
 

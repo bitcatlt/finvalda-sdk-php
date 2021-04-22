@@ -6,12 +6,14 @@ use Finvalda\Http\ClientInterface;
 use Finvalda\Http\Guzzle\SoapClient;
 use Finvalda\Method\Client\ClientRequest;
 use Finvalda\Method\Client\ClientResponseParser;
+use Finvalda\Method\Delete\DeleteRequest;
+use Finvalda\Method\Delete\DeleteResponseParser;
 use Finvalda\Method\Insert\InsertRequest;
 use Finvalda\Method\Insert\InsertResponseParser;
 use Finvalda\Method\Models\Client;
 use Finvalda\Method\Models\ClientRequestModel;
-use Finvalda\Method\Models\InsertRequestModel;
 use Finvalda\Method\Models\ProductRequestModel;
+use Finvalda\Method\Models\RequestModel;
 use Finvalda\Method\Product\ProductCheckResponseParser;
 use Finvalda\Method\Product\ProductRequest;
 use Finvalda\Method\Product\ProductResponseParser;
@@ -29,7 +31,7 @@ class FinvaldaClient implements ClientInterface
         return $client;
     }
 
-    public function sendProductRequest(ProductRequestModel $productRequestModel): array
+    public function sendProductRequest(ProductRequestModel $productRequestModel):array
     {
         $productRequest = new ProductRequest($productRequestModel);
         $response = $this->getClient()->send($productRequest);
@@ -38,7 +40,7 @@ class FinvaldaClient implements ClientInterface
         return $productListResponseParser->extractProducts($response);
     }
 
-    public function productCheckRequest(ProductRequestModel $productRequestModel): bool
+    public function productCheckRequest(ProductRequestModel $productRequestModel):bool
     {
         $productRequest = new ProductRequest($productRequestModel);
         $response = $this->getClient()->send($productRequest);
@@ -47,7 +49,7 @@ class FinvaldaClient implements ClientInterface
         return $parser->parseResponse($response);
     }
 
-    public function getClientRequest(ClientRequestModel $clientRequestModel): Client
+    public function getClientRequest(ClientRequestModel $clientRequestModel):Client
     {
         $clientRequest = new ClientRequest($clientRequestModel);
         $response = $this->getClient()->send($clientRequest);
@@ -56,11 +58,20 @@ class FinvaldaClient implements ClientInterface
         return $responseParser->parseResponse($response);
     }
 
-    public function sendInsertRequest(InsertRequestModel $insertRequestModel):bool
+    public function sendInsertRequest(RequestModel $requestModel):array
     {
-        $insertNewItemRequest = new InsertRequest($insertRequestModel);
+        $insertNewItemRequest = new InsertRequest($requestModel);
         $response = $this->getClient()->send($insertNewItemRequest);
         $responseParser = new InsertResponseParser();
+
+        return $responseParser->parseResponse($response);
+    }
+
+    public function sendDeleteRequest(RequestModel $requestModel):bool
+    {
+        $deleteRequest = new DeleteRequest($requestModel);
+        $response = $this->getClient()->send($deleteRequest);
+        $responseParser = new DeleteResponseParser();
 
         return $responseParser->parseResponse($response);
     }

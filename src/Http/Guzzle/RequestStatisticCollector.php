@@ -25,7 +25,8 @@ class RequestStatisticCollector
         RequestInterface::TYPE_INSERT_CUSTOMER,
         RequestInterface::TYPE_INSERT,
         RequestInterface::TYPE_INSERT_PRODUCT,
-        RequestInterface::TYPE_INSERT_SERVICE
+        RequestInterface::TYPE_INSERT_SERVICE,
+        RequestInterface::TYPE_ORDER_DELETE
     ];
 
     /** @var array */
@@ -39,7 +40,8 @@ class RequestStatisticCollector
         RequestInterface::TYPE_INSERT_CUSTOMER,
         RequestInterface::TYPE_INSERT,
         RequestInterface::TYPE_INSERT_PRODUCT,
-        RequestInterface::TYPE_INSERT_SERVICE
+        RequestInterface::TYPE_INSERT_SERVICE,
+        RequestInterface::TYPE_ORDER_DELETE
     ];
 
     public function start():void

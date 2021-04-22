@@ -15,6 +15,7 @@ interface RequestInterface
     const TYPE_INSERT = 'InsertRequest';
     const TYPE_INSERT_PRODUCT = 'InsertProductRequest';
     const TYPE_INSERT_SERVICE = 'InsertProductRequest';
+    const TYPE_ORDER_DELETE = 'OrderDeleteRequest';
 
     /**
      * @return string

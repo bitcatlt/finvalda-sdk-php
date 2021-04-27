@@ -12,10 +12,7 @@ class DeleteResponseParser implements ResponseParserInterface
         $result = false;
 
         $response = $providerResponse->getResponseObject();
-        if (
-            (property_exists($response, 'InsertNewItemResult') && $response->InsertNewItemResult === 'Success')
-            || (property_exists($response, 'InsertNewOperationResult') && $response->InsertNewOperationResult === 'Success')
-        ){
+        if (property_exists($response, 'DeleteOperationResult') && $response->DeleteOperationResult === 'Success'){
             $result = true;
         }
 

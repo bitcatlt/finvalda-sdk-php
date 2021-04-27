@@ -20,6 +20,7 @@ class RequestStatisticCollector
     /** @var array */
     protected $logResponse = [
         RequestInterface::TYPE_ORDER_RESERVATION,
+        RequestInterface::TYPE_GET_COMPANY,
         RequestInterface::TYPE_ORDER,
         RequestInterface::TYPE_INSERT_COMPANY,
         RequestInterface::TYPE_INSERT_CUSTOMER,

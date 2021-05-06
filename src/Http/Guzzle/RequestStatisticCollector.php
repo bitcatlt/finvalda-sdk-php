@@ -42,7 +42,8 @@ class RequestStatisticCollector
         RequestInterface::TYPE_INSERT,
         RequestInterface::TYPE_INSERT_PRODUCT,
         RequestInterface::TYPE_INSERT_SERVICE,
-        RequestInterface::TYPE_ORDER_DELETE
+        RequestInterface::TYPE_ORDER_DELETE,
+        RequestInterface::TYPE_GET_COMPANIES
     ];
 
     public function start():void

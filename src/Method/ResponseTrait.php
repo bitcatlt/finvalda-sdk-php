@@ -17,8 +17,10 @@ trait ResponseTrait
         libxml_use_internal_errors(true);
         try {
             $data = $response->getData();
+
             if (isset($data->Xml) && is_string($data->Xml)) {
                 $data = trim($data->Xml);
+                $data = str_replace('&#x1A;', '', $data);
             }
 
             $result = new \SimpleXMLElement($data);

@@ -13,27 +13,24 @@ class ClientsResponseParser implements ResponseParserInterface
 
     public function parseResponse(ResponseInterface $providerResponse):array
     {
-        $parsedClientsList = [];
+        $clientsList = [];
 
         $result = $this->getFinvaldaResponseXML($providerResponse);
         if (!$providerResponse->hasErrors()) {
-
-            foreach ($result->Klientas ?? [] as $item) {
+            foreach ($result->{'Fvs.Klientas'} ?? [] as $item) {
                 $client = new Client();
                 $client->setFvsUserCode((string)$item->sKodas);
                 $client->setName((string)$item->sPavadinimas);
                 $client->setAddress((string)$item->sAdresas);
                 $client->setPhone((string)$item->sTelefonas);
-                $client->setCompanyCode((int)$item->sImKodas);
-                $client->setVatCode((int)$item->sPvmMoketojoKod);
+                $client->setCompanyCode((string)$item->sImKodas);
+                $client->setVatCode((string)$item->sPvmMoketojoKod);
                 $client->setIsClientExist(true);
 
-                $parsedClientsList[] = $client;
+                $clientsList[] = $client;
             }
         }
 
-
-
-        return $parsedClientsList;
+        return $clientsList;
     }
 }

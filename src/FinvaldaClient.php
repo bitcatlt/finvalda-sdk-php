@@ -6,6 +6,8 @@ use Finvalda\Http\ClientInterface;
 use Finvalda\Http\Guzzle\SoapClient;
 use Finvalda\Method\Client\ClientRequest;
 use Finvalda\Method\Client\ClientResponseParser;
+use Finvalda\Method\Client\ClientsRequest;
+use Finvalda\Method\Client\ClientsResponseParser;
 use Finvalda\Method\Delete\DeleteRequest;
 use Finvalda\Method\Delete\DeleteResponseParser;
 use Finvalda\Method\Insert\InsertRequest;
@@ -54,6 +56,15 @@ class FinvaldaClient implements ClientInterface
         $clientRequest = new ClientRequest($clientRequestModel);
         $response = $this->getClient()->send($clientRequest);
         $responseParser = new ClientResponseParser();
+
+        return $responseParser->parseResponse($response);
+    }
+
+    public function getClientsRequest(ClientRequestModel $clientRequestModel):array
+    {
+        $clientRequest = new ClientsRequest($clientRequestModel);
+        $response = $this->getClient()->send($clientRequest);
+        $responseParser = new ClientsResponseParser();
 
         return $responseParser->parseResponse($response);
     }

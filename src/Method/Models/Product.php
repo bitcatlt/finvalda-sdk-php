@@ -25,6 +25,9 @@ class Product
     /** @var string */
     protected $category;
 
+    /** @var array */
+    protected $otherPrices = [];
+
     public function setPrice(float $price):void
     {
         $this->price = $price;
@@ -33,6 +36,16 @@ class Product
     public function getPrice():float
     {
         return $this->price;
+    }
+
+    public function setOtherPrices(array $otherPrices):void
+    {
+        $this->otherPrices = $otherPrices;
+    }
+
+    public function getOtherPrices():array
+    {
+        return $this->otherPrices;
     }
 
     public function setName(string $name):void
@@ -72,7 +85,7 @@ class Product
 
     public function setQuantityWithReserve(int $quantityWithReserve):void
     {
-        $this->quantityWithReserve = $quantityWithReserve;
+        $this->quantityWithReserve = $quantityWithReserve >= 0 ? $quantityWithReserve : 0;
     }
 
     public function getWarehouseCode():string

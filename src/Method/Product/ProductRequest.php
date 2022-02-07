@@ -42,6 +42,7 @@ class ProductRequest implements SoapRequestInterface
         }
 
         $params->writeSchema  = false;
+        $params->bNuliniaiLikuciai = true;
 
         return [$params];
     }

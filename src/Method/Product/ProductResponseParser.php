@@ -24,13 +24,13 @@ class ProductResponseParser
                 $product->setCategory((string)$item->sandelio_pav);
                 $product->setQuantity((int)$item->kiekis);
                 $product->setQuantityWithReserve((int)$item->kiekis_su_rezervuotom);
-                $product->setPrice((float)($item->kaina1_san ?? $item->savikaina));
+                $product->setPrice((float)($item->kaina1_kort ?? $item->savikaina));
                 $product->setOtherPrices([
-                    'price_b2b_1' => (float)($item->kaina2_san ?? 0),
-                    'price_b2b_2' => (float)($item->kaina3_san ?? 0),
-                    'price_b2b_3' => (float)($item->kaina4_san ?? 0),
-                    'price_b2b_4' => (float)($item->kaina5_san ?? 0),
-                    'price_b2b_5' => (float)($item->kaina6_san ?? 0)
+                    'price_b2b_1' => (float)($item->kaina2_kort ?? 0),
+                    'price_b2b_2' => (float)($item->kaina3_kort ?? 0),
+                    'price_b2b_3' => (float)($item->kaina4_kort ?? 0),
+                    'price_b2b_4' => (float)($item->kaina5_kort ?? 0),
+                    'price_b2b_5' => (float)($item->kaina6_kort ?? 0)
                 ]);
 
                 $parsedProductList[] = $product;
